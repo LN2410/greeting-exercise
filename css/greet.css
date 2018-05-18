@@ -1,0 +1,34 @@
+* {
+  margin: auto;
+  width: auto;
+}
+.header{
+  background-color: pink  ;
+  margin-top: 5%;
+  padding-bottom: 10%;
+}
+.header h1 {
+  font: italic small-caps bold 14px/22px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 40px;
+  text-align: center;
+  margin-top: 2%;
+}
+.content{
+  text-align: left;
+  padding-top: 5%;
+  margin-left: 1%;
+}
+.userName{
+  margin-left: 3%;
+}
+.body{
+  text-align: right;
+}
+.footer{
+  margin-top: 10%;
+}
+
+/* .dis{
+    font-weight: bold;
+    font-size: 2em;
+} */
