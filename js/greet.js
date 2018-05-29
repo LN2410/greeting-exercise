@@ -1,64 +1,95 @@
-//reference the greetBtn
-var greetBtnElement = document.querySelector(".greetBtn");
 
-//reference the three 3 radio buttons for languages and also the display area
-var isiXhosaRadioElement = document.querySelector(".isiXhosaRadio");
-var englishRadioElement = document.querySelector(".englishRadio");
-var afriRadioElement = document.querySelector(".afriRadio");
-var display = document.querySelector('.dis');
-//reference the textbox where names are entered
-var userNameElement = document.querySelector(".userName");
-var Counter = document.querySelector(".counter");
-
+function GreetPeople(){
 var greetCount=0 ;
 
-function greetPeople(){
-var checkedLanguageRadioBtn = document.querySelector("input[name='language']:checked");
-var Language = checkedLanguageRadioBtn.value;
-var names = userNameElement.value;
+function greet(Language,names){
 
   if (Language === 'english'){
-  return display.innerHTML = 'Good day ' + names;
+  display = 'Good day ' + names;
     }
-else if (Language === 'isiXhosa') {
-  return display.innerHTML = 'Molo ' + names;
+  if (Language === 'isiXhosa') {
+  display = 'Molo ' + names;
   }
-  else if (Language === 'afrikaans'){
-    return display.innerHTML = 'Goeie dag ' + names;
+  if (Language === 'afrikaans'){
+    display = 'Goeie dag ' + names;
   }
+}
 
-
-function count() {
+function count(Language,names) {
   greetCount++;
-
+}
+function displayName(){
+  return display;
+}
+return{
+  GreetPeople,
+  greet,
+  count,
+  displayName
 }
 
-
+var factoryF = GreetPeople()
+// function clickCounter(){
+// if (localStorage.clickcount){
+//   localStorage.clickcount = Number(localStorage.clickcount)+1;
+// }
+// else {
+//   localStorage.clickcount = 1;
+// }
+// Counter.innerHTML = "names greeted here" + localStorage.clickcount;
+// }
+// function clearCounter() {
 //
-// var namesGreeted = 0;
-// function greetCount(){
-//   namesGreeted++;
-//   return Counter.innerHTML
 // }
-// return{
-//   greetCount
+// return {
+//   clickCounter,
+//   clearCounter
 // }
-
-function clickCounter(){
-if (localStorage.clickcount){
-  localStorage.clickcount = Number(localStorage.clickcount)+1;
+// function GreetF(){
+//
+//   var personname = '' ;
+//   // var greetName = '' ;
+//   var greetCounter= 0 ;
+//
+//
+//
+// function Greet(names,language) {
+//
+//     if (names != '') {
+//       personname=names;
+//   }
+//   if (language === 'Eng' ) {
+//         greetName = 'Hello, ' + names ;
+//       }
+//
+//    if (language === 'Xho' ) {
+//       greetName= 'Molo, ' + names ;
+//       }
+//  if (language === 'Afri') {
+//     greetName = 'Halo, ' + names;
+//     }
+//
+//
+// }
+// function countName() {
+//  //Object.keys(greetCounter).length;
+//   return  greetCounter++;
+//
+// }
+//
+//
+//
+// //
+// function GetName() {
+//   return greetName;
+// }
+//
+// return {
+//       GreetF,
+//       Greet,
+//       GetName,
+//       countName
+// }
+// }
+// var factoryF= GreetF()
 }
-else {
-  localStorage.clickcount = 1;
-}
-Counter.innerHTML = "names greeted here" + localStorage.clickcount;
-}
-function clearCounter() {
-
-}
-return {
-  clickCounter,
-  clearCounter
-}
-}
-greetBtnElement.addEventListener('click', greetPeople);
