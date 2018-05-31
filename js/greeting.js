@@ -1,6 +1,6 @@
 function GreetPeople(storedUser) {
   var greetCount = 0;
-  var nameAnLanguage = '';
+  var theGreet = '';
   var peopleNames = {};
 
   function greetFunc(name, Language) {
@@ -16,19 +16,19 @@ function GreetPeople(storedUser) {
     }
 
     if (Language === 'english') {
-      nameAnLanguage = 'Good day, ' + name;
+      theGreet = 'Good day, ' + name;
     }
     if (Language === 'afrikaans') {
-      nameAnLanguage = 'Goeie dag, ' + name;
+      theGreet = 'Goeie dag, ' + name;
     }
     if (Language === 'isiXhosa') {
-      nameAnLanguage = 'Molo, ' + name;
+      theGreet = 'Molo, ' + name;
     }
 
   }
 
-  function returnGreeting() {
-    return nameAnLanguage
+  function returnGreet() {
+    return theGreet
   }
 
   function greetCounter() {
@@ -45,7 +45,7 @@ function GreetPeople(storedUser) {
 
   return {
     greetFunc,
-    returnGreeting,
+    returnGreet,
     greetCounter,
     enterName,
     reset,

@@ -34,7 +34,7 @@ function greetPeople() {
 
   localStorage.setItem('users', JSON.stringify(factoryF.enterName()));
 
-  displayElement.innerHTML = factoryF.returnGreeting();
+  displayElement.innerHTML = factoryF.returnGreet();
   count.innerHTML = factoryF.greetCounter();
 
 //if a user does not enter a name then display the message
@@ -55,7 +55,7 @@ greetBtnElement.addEventListener('click', function() {
 resetBtnElement.addEventListener('click', function() {
   factoryF.reset();
   count.innerHTML = 0;
-  localStorage.clear()
+  localStorage.clear();
   theName.value = '';
 
 })
