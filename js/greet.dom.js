@@ -1,52 +1,61 @@
+//reference the userName field
+var theName = document.querySelector('.userName');
 //reference the greetBtn
-var greetBtnElement = document.querySelector(".greetBtn");
-//reference the three 3 radio buttons for languages and also the display area
-var isiXhosaRadioElement = document.querySelector(".isiXhosaRadio");
-var englishRadioElement = document.querySelector(".englishRadio");
-var afriRadioElement = document.querySelector(".afriRadio");
-var display = document.querySelector('.dis');
-//reference the textbox where names are entered
-var userNameElement = document.querySelector(".userName");
-var Counter = document.querySelector(".counter")
+var greetBtnElement = document.querySelector('.greetBtn');
+//reference the counter field
+var count = document.querySelector('.counter');
+//reference the display field
+var displayElement = document.querySelector('.dis');
+//reference the language radio buttons
+var langRadio = document.querySelector('.languageRadio');
+//reference the resetBtn
+var resetBtnElement = document.querySelector('.resetBtn');
+//reference the users for the local localStorage
+var referenceUser = localStorage.getItem('users');
 
-function greetPeople(){
-  var checkedLanguageRadioBtn = document.querySelector("input[name='language']:checked");
-  if (checkedLanguageRadioBtn) {
-    var Language = checkedLanguageRadioBtn.value;
-    var names = userNameElement.value;
 
-    factoryF.greet(Language,names);
-    display.innerHTML = factoryF.displayName();
+var storedUsers = referenceUser ? JSON.parse(referenceUser) : {};
+//each time a name is entered, add it in the list of objects
+count.innerHTML = Object.keys(storedUsers).length;
 
-    Counter.innerHTML = factoryF.count();
+//instance of the factoryFunction from the logic file
+var factoryF = GreetPeople(storedUsers)
+//this is the dom function
+function greetPeople() {
+  var checkedLangRadio = document.querySelector("input[name='languages']:checked");
+
+  if (checkedLangRadio) {
+    var Language = checkedLangRadio.value
+  }
+
+  var names = theName.value
+
+  factoryF.greetFunc(names, Language);
+
+  localStorage.setItem('users', JSON.stringify(factoryF.enterName()));
+
+  displayElement.innerHTML = factoryF.returnGreeting();
+  count.innerHTML = factoryF.greetCounter();
+
+//if a user does not enter a name then display the message
+  if (names === "") {
+    displayElement.innerHTML = 'You have not entered a name'
+  }
+
+  if (!checkedLangRadio) {
+    displayElement.innerHTML = 'Please select one of the languages';
   }
 }
-console.log(greetPeople());
-greetBtnElement.addEventListener('click', greetPeople());
-// 
-// var text = document.querySelector ('.Text');
-// var language = document.querySelector ('.language');
-// var GreetBtn = document.querySelector ('.GreetBtn');
-// var ResetBtn = document.querySelector ('.Reset');
-// var output = document.querySelector ('.output');
-// var peopleCount = document.querySelector('.peopleCount');
-//
-//
-//
-//
-// function dom(pName) {
-//  var checkLanguage = document.querySelector("input[name=languageType]:checked");
-//    if (checkLanguage) {
-//    var  names=text.value;
-//    var language= checkLanguage.value;
-//    factoryF.Greet(names,language);
-//    output.innerHTML = factoryF.GetName();
-//    peopleCount.innerHTML=factoryF.countName();
-//
-//    }
-// }
-//
-//
-//
-//
-// GreetBtn.addEventListener('click', dom);
+//the eventlistener for when the greetBtn is clicked
+greetBtnElement.addEventListener('click', function() {
+  greetPeople();
+  theName.value = '';
+})
+//the eventlistener for when the reset is clicked
+resetBtnElement.addEventListener('click', function() {
+  factoryF.reset();
+  count.innerHTML = 0;
+  localStorage.clear()
+  theName.value = '';
+
+})

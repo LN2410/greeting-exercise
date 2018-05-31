@@ -60,15 +60,16 @@
 <div class="body">
 <div class="row">
   <div class="six columns">
-    <input type="radio" name="language" class="isiXhosaRadio" value="isiXhosa">
+    <input type="radio" name="languages" class="languageRadio" value="isiXhosa">
     <span class="label-body">isiXhosa</span>
-    <input type="radio" name="language" class="englishRadio" value="english">
+    <input type="radio" name="languages" class="languageRadio" value="english">
     <span class="label-body">English</span>
-    <input type="radio" name="language" class="afriRadio" value="afrikaans">
+    <input type="radio" name="languages" class="languageRadio" value="afrikaans">
     <span class="label-body">Afrikaans</span>
   </div>
   <div class="six columns">
-    <button class="greetBtn">Greet Me</button>
+    <button class="greetBtn" value="Greet!">Greet Me</button>
+    <button class="resetBtn" value="reset!">Reset</button>
   </div>
 </div>
 </div>
@@ -84,8 +85,9 @@
 </div>
 </div>
 
+<script src="js/greeting.js"></script>
 <script src="js/greet.dom.js"></script>
-<script src="js/greet.js"></script>
+
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
