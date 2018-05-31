@@ -53,9 +53,6 @@ greetBtnElement.addEventListener('click', function() {
 })
 //the eventlistener for when the reset is clicked
 resetBtnElement.addEventListener('click', function() {
-  factoryF.reset();
-  count.innerHTML = 0;
   localStorage.clear();
-  theName.value = '';
-
+  location.reload();
 })
