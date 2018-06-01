@@ -1,13 +1,9 @@
 function GreetPeople(storedUser) {
   var greetCount = 0;
   var theGreet = '';
-  var peopleNames = {};
+  var peopleNames = storedUser || {};
 
   function greetFunc(name, Language) {
-
-    if (storedUser) {
-      peopleNames = storedUser
-    }
 
     if (name !== "" && Language ) {
       if (peopleNames[name] === undefined) {

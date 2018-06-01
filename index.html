@@ -53,7 +53,12 @@
     <label for="">Name</label>
   </div>
   <div class "ten columns">
-    <input type="text" name="" value="" placeholder="" class="userName">
+    <input type="text" name="" value="" placeholder="" class="userName" onkeydown="Check(this);" onkeyup="Check(this);">
+    <script>
+      function Check(me) {
+        me.value = me.value.replace(/[0-9]/g, "");
+      }
+    </script>
   </div>
 </div>
 </div>
