@@ -50,7 +50,7 @@ describe('The Greeting Exercise Function', function(){
 
     noName.greetFunc("", 'afrikaans')
 
-    assert.equal(noName.greetFunc());
+    assert.equal(noName.greetFunc(),'Please enter a name';
   });
 
   it('should not greet when there is no language selected', function(){
@@ -58,6 +58,6 @@ describe('The Greeting Exercise Function', function(){
 
     noLang.greetFunc("Lihle", '')
 
-    assert.equal(noLang.greetFunc());
+    assert.equal(noLang.greetFunc(), 'Please select one of the languages');
   });
 });
