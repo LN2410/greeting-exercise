@@ -36,11 +36,11 @@ describe('The Greeting Exercise Function', function(){
   });
 
   it('should only count the same name entered once', function(){
-    var everyName = GreetPeople();
+    var everyName = GreetPeople({name: "Yonela"});
 
-    everyName.greetFunc("Yonela", 'afrikaans')
-    everyName.greetFunc("Yonela", 'english')
-    everyName.greetFunc("Yonela", 'isiXhosa')
+    everyName.greetFunc('afrikaans')
+    everyName.greetFunc('english')
+    everyName.greetFunc('isiXhosa')
 
     assert.equal(everyName.greetCounter(), 1);
   });
@@ -48,16 +48,16 @@ describe('The Greeting Exercise Function', function(){
   it('should not greet when there is no name entered', function(){
     var noName = GreetPeople();
 
-    noName.greetFunc("", 'afrikaans')
+    noName.greetFunc('')
 
-    assert.equal(noName.greetFunc(),'Please enter a name';
+    assert.equal(noName.returnGreet(),'Please enter a name');
   });
 
   it('should not greet when there is no language selected', function(){
     var noLang = GreetPeople();
 
-    noLang.greetFunc("Lihle", '')
+    noLang.greetFunc('lihle','')
 
-    assert.equal(noLang.greetFunc(), 'Please select one of the languages');
+    assert.equal(noLang.returnGreet(), 'Please select one of the languages');
   });
 });

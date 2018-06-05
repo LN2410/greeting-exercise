@@ -14,11 +14,17 @@ function GreetPeople(storedUser) {
     if (Language === 'english') {
       theGreet = 'Good day, ' + name;
     }
-    if (Language === 'afrikaans') {
+    else if (Language === 'afrikaans') {
       theGreet = 'Goeie dag, ' + name;
     }
-    if (Language === 'isiXhosa') {
+    else if (Language === 'isiXhosa') {
       theGreet = 'Molo, ' + name;
+    }
+    else if(name === ''){
+      theGreet = 'Please enter a name';
+    }
+    else {
+      theGreet = 'Please select one of the languages'
     }
 
   }
